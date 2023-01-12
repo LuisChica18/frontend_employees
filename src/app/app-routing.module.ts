@@ -6,6 +6,7 @@ import { EmployeeEditionComponent } from './pages/employee/employee-edition/empl
 import { EmployeeComponent } from './pages/employee/employee.component';
 import { EnterpriseEditionComponent } from './pages/enterprise/enterprise-edition/enterprise-edition.component';
 import { EnterpriseComponent } from './pages/enterprise/enterprise.component';
+import { LoginComponent } from './pages/login/login.component';
 
 const routes: Routes = [
   {
@@ -25,7 +26,9 @@ const routes: Routes = [
       { path : 'new', component : EmployeeEditionComponent },
       { path : 'edition/:id', component : EmployeeEditionComponent }
     ]
-  }
+  },
+  { path: 'login', component: LoginComponent },
+  { path: '', redirectTo: 'login', pathMatch: 'full' }
 ];
 
 @NgModule({

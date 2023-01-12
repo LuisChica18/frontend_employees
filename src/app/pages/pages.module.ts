@@ -38,6 +38,5 @@ import { LayoutComponent } from './pages/layout/layout.component';
     FormsModule, //ngModel
   ],
   providers: [],
-  bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class pagesModule { }
