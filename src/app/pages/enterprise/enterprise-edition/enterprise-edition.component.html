@@ -1,0 +1,35 @@
+<form class="example-container" [formGroup]="form" #frmEnterprise="ngForm" (ngSubmit)="operar()">
+
+  <div [hidden]="true">
+      <mat-form-field class="example-full-width">
+          <input matInput placeholder="ID" required formControlName="id">
+      </mat-form-field>
+  </div>
+
+  <mat-form-field class="example-full-width">
+      <input matInput placeholder="Address" minlength="3" required formControlName="address">
+      <!-- Validación de formulario con mensaje y estilo - (touched) para no mostrar cuando inicia-->
+      <small *ngIf="f['address'].errors?.['required'] && f['address'].touched" class="invalido">Address requerid</small>
+      <small *ngIf="f['address'].errors?.['minlength'] && f['address'].touched" class="invalido">Address should 3 characters</small>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+      <input matInput placeholder="Name" required formControlName="name">
+      <!-- Validación de formulario con mensaje y estilo - (touched) para no mostrar cuando inicia-->
+      <small *ngIf="f['name'].errors?.['required'] && f['name'].touched" class="invalido">Name requerid</small>
+      <small *ngIf="f['name'].errors?.['minlength'] && f['name'].touched" class="invalido">Name should 3 characters</small>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+      <input matInput placeholder="Phone" required formControlName="phone" type="number">
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="frmEnterprise.invalid">
+      <mat-icon>done</mat-icon>
+      <span>Aceptar</span>
+  </button>
+  <button mat-raised-button color="accent" routerLink='/pages/enterprise' type="button">
+      <mat-icon>close</mat-icon>
+      <span>Cancelar</span>
+  </button>
+</form>

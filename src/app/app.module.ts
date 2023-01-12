@@ -9,13 +9,16 @@ import { DepartmentComponent } from './pages/department/department.component';
 import { EmployeeComponent } from './pages/employee/employee.component';
 import { MaterialModule } from './material/material.module';
 import { HttpClientModule } from '@angular/common/http';
+import { EnterpriseEditionComponent } from './pages/enterprise/enterprise-edition/enterprise-edition.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     EnterpriseComponent,
     DepartmentComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    EnterpriseEditionComponent
   ],
   imports: [
     BrowserModule,
@@ -23,6 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
+    ReactiveFormsModule, //Formularios
+    FormsModule, //ngModel
   ],
   providers: [],
   bootstrap: [AppComponent]
