@@ -11,6 +11,8 @@ import { MaterialModule } from './material/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { EnterpriseEditionComponent } from './pages/enterprise/enterprise-edition/enterprise-edition.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DepartmentEditionComponent } from './pages/department/department-edition/department-edition.component';
+import { EmployeeEditionComponent } from './pages/employee/employee-edition/employee-edition.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     EnterpriseComponent,
     DepartmentComponent,
     EmployeeComponent,
-    EnterpriseEditionComponent
+    EnterpriseEditionComponent,
+    DepartmentEditionComponent,
+    EmployeeEditionComponent
   ],
   imports: [
     BrowserModule,

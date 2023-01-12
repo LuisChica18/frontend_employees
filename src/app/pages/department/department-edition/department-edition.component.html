@@ -1,0 +1,43 @@
+<form class="example-container" [formGroup]="form" #frmEnterprise="ngForm" (ngSubmit)="operar()">
+
+  <div [hidden]="true">
+      <mat-form-field class="example-full-width">
+          <input matInput placeholder="ID" required formControlName="id">
+      </mat-form-field>
+  </div>
+
+  <mat-form-field class="example-full-width">
+      <input matInput placeholder="Description" minlength="3" required formControlName="description">
+      <!-- Validación de formulario con mensaje y estilo - (touched) para no mostrar cuando inicia-->
+      <small *ngIf="f['description'].errors?.['required'] && f['description'].touched" class="invalido">Description requerid</small>
+      <small *ngIf="f['description'].errors?.['minlength'] && f['description'].touched" class="invalido">Description should 3 characters</small>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+      <input matInput placeholder="Name" required formControlName="name">
+      <!-- Validación de formulario con mensaje y estilo - (touched) para no mostrar cuando inicia-->
+      <small *ngIf="f['name'].errors?.['required'] && f['name'].touched" class="invalido">Name requerid</small>
+      <small *ngIf="f['name'].errors?.['minlength'] && f['name'].touched" class="invalido">Name should 3 characters</small>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+      <input matInput placeholder="Phone" required formControlName="phone" type="number">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Choose Enterprise" [(ngModel)]="idEnterpriseSeleccionado" [ngModelOptions]="{standalone: true}">
+        <mat-option *ngFor="let p of (enterprises$ | async)" [value]="p.idEnterprise">
+            {{p.name}}
+        </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="frmEnterprise.invalid">
+      <mat-icon>done</mat-icon>
+      <span>Aceptar</span>
+  </button>
+  <button mat-raised-button color="accent" routerLink='/pages/department' type="button">
+      <mat-icon>close</mat-icon>
+      <span>Cancelar</span>
+  </button>
+</form>

@@ -2,21 +2,21 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Enterprise } from '../_model/enterprise';
+import { Employee } from '../_model/employee';
 import { GenericService } from './generic.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class EnterpriseService extends GenericService<Enterprise>{
+export class EmployeeService extends GenericService<Employee>{
 
-  private enterpriseCambio = new Subject<Enterprise[]>();
+  private enterpriseCambio = new Subject<Employee[]>();
   private mensajeCambio = new Subject<string>();
 
   constructor(protected override http: HttpClient) {
     super(
       http,
-      `${environment.HOST}/enterprises`);
+      `${environment.HOST}/employees`);
   }
 
   listarPageable(p:number, s:number){
@@ -24,11 +24,11 @@ export class EnterpriseService extends GenericService<Enterprise>{
   }
 
   // get set
-  getEnterpriseCambio() {
+  getEmployeeCambio() {
     return this.enterpriseCambio.asObservable();
   }
 
-  setEnterpriseCambio(enterprise: Enterprise[]) {
+  setEmployeeCambio(enterprise: Employee[]) {
     this.enterpriseCambio.next(enterprise);
   }
 
@@ -41,3 +41,4 @@ export class EnterpriseService extends GenericService<Enterprise>{
     this.mensajeCambio.next(mensaje);
   }
 }
+
