@@ -4,7 +4,11 @@
 
 export const environment = {
   production: false,
-  HOST: 'http://localhost:8081/api'
+  HOST: 'http://localhost:8081/api',
+  TOKEN_AUTH_USERNAME: 'sicpa',
+  TOKEN_AUTH_PASSWORD: 'sicpa',
+  TOKEN_NAME: 'token',
+  REINTENTOS: 2
 };
 
 /*
