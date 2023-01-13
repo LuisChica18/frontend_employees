@@ -1,42 +1,40 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { EnterpriseComponent } from './pages/enterprise/enterprise.component';
-import { DepartmentComponent } from './pages/department/department.component';
-import { EmployeeComponent } from './pages/employee/employee.component';
-import { MaterialModule } from './material/material.module';
+import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { EnterpriseEditionComponent } from './pages/enterprise/enterprise-edition/enterprise-edition.component';
+import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DepartmentEditionComponent } from './pages/department/department-edition/department-edition.component';
-import { EmployeeEditionComponent } from './pages/employee/employee-edition/employee-edition.component';
-import { LoginComponent } from './pages/login/login.component';
-import { LayoutComponent } from './pages/layout/layout.component';
+import { MaterialModule } from '../material/material.module';
+import { EnterpriseEditionComponent } from './enterprise/enterprise-edition/enterprise-edition.component';
+import { EnterpriseComponent } from './enterprise/enterprise.component';
+import { InicioComponent } from './inicio/inicio.component';
+import { LayoutComponent } from './layout/layout.component';
+import { DepartmentComponent } from './department/department.component';
+import { DepartmentEditionComponent } from './department/department-edition/department-edition.component';
+import { EmployeeComponent } from './employee/employee.component';
+import { EmployeeEditionComponent } from './employee/employee-edition/employee-edition.component';
+import { PagesRoutingModule } from './pages-routing.module';
+
+
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    EnterpriseComponent,
-    DepartmentComponent,
-    EmployeeComponent,
-    EnterpriseEditionComponent,
-    DepartmentEditionComponent,
-    EmployeeEditionComponent,
-    LoginComponent,
-    LayoutComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MaterialModule,
-    HttpClientModule,
-    ReactiveFormsModule, //Formularios
-    FormsModule, //ngModel
-  ],
-  providers: [],
+    imports: [
+        MaterialModule,
+        CommonModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        FormsModule,
+        PagesRoutingModule,
+    ],
+    exports: [],
+    declarations: [
+        EnterpriseComponent,
+        EnterpriseEditionComponent,
+        DepartmentComponent,
+        DepartmentEditionComponent,
+        EmployeeComponent,
+        EmployeeEditionComponent,
+        LayoutComponent,
+        InicioComponent,
+    ],
+    providers: [],
 })
-export class pagesModule { }
+export class PagesModule { }
