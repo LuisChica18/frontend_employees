@@ -47,7 +47,7 @@ export function tokenGetter() {
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        allowedDomains: [environment.HOST.substring(7)],
+        allowedDomains: [environment.HOST.substring(7,21)],
         disallowedRoutes: [`${environment.HOST}/login/enviarCorreo`]
       },
     }),

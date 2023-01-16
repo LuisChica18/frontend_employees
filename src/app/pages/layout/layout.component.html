@@ -14,13 +14,9 @@
       </button>
 
       <mat-menu #menu="matMenu">
-          <button mat-menu-item routerLink="/perfil">
-              <mat-icon>account_box</mat-icon>
-              <span>Mi Perfil</span>
-          </button>
-          <button mat-menu-item (click)="sidenav.opened = false" >
+          <button mat-menu-item (click)="sidenav.opened = false" (click)="cerrarSesion()">
               <mat-icon>exit_to_app</mat-icon>
-              <span>Cerrar Sesión</span>
+              <span>Sign Out</span>
           </button>
       </mat-menu>
   </mat-toolbar>

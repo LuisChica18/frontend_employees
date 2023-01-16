@@ -30,7 +30,7 @@ export class LoginService {
 
   cerrarSesion() {
     let token = sessionStorage.getItem(environment.TOKEN_NAME);
-    this.http.get(`${environment.HOST}/tokens/anular/${token}`).subscribe(() => {
+    this.http.get(`${environment.HOST.substring(0,21)}/tokens/cancel/${token}`).subscribe(() => {
       sessionStorage.clear();
       this.router.navigate(['login']);
     });
