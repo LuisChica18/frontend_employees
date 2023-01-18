@@ -1,30 +1,32 @@
 <p align="center"">
-<h2>Propuesta Técnica SICPA</h2>
+<h2>SICPA Technical Proposal</h2>
 </p>
 
-Implementación de una propuesta técnica de gestión de Empleados, Compañias y Departamentos. El sistema está conformado por dos partes:
+Implementation of a technical proposal for the management of Employees, Companies and Departments. The system is made up of two parts:
 
 Backend : Spring Boot 2.7.7
 
 FrontEnd : Angular 14.0.1
 
 
-Cotenidos
+Contents
 =================
-- [Cotenidos](#cotenidos)
-	- [Software requerido](#software-requerido)
-  - [Repositorios](#repositorios)
-	- [Pasos previos](#pasos-previos)
-	- [Instalación](#instalación)
-		- [Despliegue estándar](#despliegue-estándar)
-	- [Seguridad](#seguridad)
-		- [Obtención de tokens OAuth2.0](#obtención-de-tokens-oauth20)
-	- [Documentación](#documentación)
+- [Contents](#contents)
+	- [Required software](#required-software)
+  - [Repositories](#repositories)
+	- [Previous steps](#previous-steps)
+	- [Installation](#installation)
+		- [Deployment](#deployment)
+	- [Security](#security)
+		- [BDD scripts users and roles](#bdd-scripts-users-and-roles)
+		- [OAuth2.0 tokens](#oauth20-tokens)
+	- [Documentation](#documentation)
 		- [Swagger](#swagger)
 		- [Postman](#postman)
 	- [Autor](#autor)
 
-## Software requerido
+## Required software
+BackEnd
 - JDK 1.8.0_121
 - Apache Maven 3.5.3
 - MariaDB 10.0.0
@@ -34,55 +36,62 @@ FrontEnd
 - npm 8.15.0 en adelante
 - Angular CLI 14.2.2
 
-## Repositorios
+## Repositories
 - [BackEnd](https://github.com/LuisChica18/backend_sicpa)
 - [FrondEnd](https://github.com/LuisChica18/frontend_employees)
 
-## Pasos previos
-- [Instalar y configurar Maven](https://www.mkyong.com/maven/how-to-install-maven-in-windows/)
+## Previous steps
+- [Install and configure Maven](https://www.mkyong.com/maven/how-to-install-maven-in-windows/)
 
-## Instalación
-La solución puede ser ejecutado como una aplicación Spring-Boot la cual requiere la instalación previa de MariaDB.
+## Installation
+The project can be run as a Spring-Boot application which requires the prior installation of MariaDB.
 
-### Despliegue estándar
+### Deployment
 
-1. Abrir una consola o shell y crear la base de datos.
+1. Open a console or shell and create the database.
 ```bash
 $ mysql -u root -p 
 # CREATE DATABASE "backend_employees";
 ```
-2. Cambiar la clave de conexión de la base de datos en la carpeta `src/main/resources/application.properties`
+2. Change the database connection key in the `src/main/resources/application.properties`
 
-3. Instalar solución.
+3. Install
 ```bash
 $ cd backend_sicpa
 $ mvn clean package install
 ```
-4. Ejecutar la solución
+4. Run
 ```bash
 $ mvn spring-boot:run 
 ```
 
-### Obtención de tokens OAuth2.0
-Para generar un token para el usuario admin, por ejemplo, podermos ejecutar el siguiente comando curl:
+## Security
+
+### BDD scripts users and roles
+
+To generate tokens, it is necessary to execute the scripts in the DB that are located in the folder `src/main/resources/scripts.sql`
+
+### OAuth2.0 tokens
+
+To generate a token for the admin user, for example, we can execute with:
 ```bash
 curl --location --request POST http://localhost:8081/oauth/token -H "Accept:application/json" -d "username=admin&password=123&grant_type=password"
 ```
-También en el archivo **/backend_sicpa/src/postman/Rest API.postman_collection.json** de postman podemos encontrar un ejemplo de llamada a este endpoint.
+Also in the postman file **/backend_sicpa/src/postman/Rest API.postman_collection.json** we can find an example of calling this endpoint.
 
-Con el token generado podemos hacer uso de cualquier de los endpoints que ofrece la solución a través de su API Rest. Para esto, debemos utilizar el token generado a través de una llamada con autenticación Bearer, tal como se muestra a continuación:
+With the generated token we can make use of any of the endpoints that the solution offers through its Rest API. For this, we must use the token generated through a call with Bearer authentication, as shown below:
 ```bash
 curl --location --request GET http://localhost:8081/api/employees -H "Authorization: Bearer saddsGFGFGKRTLRELRKERLFDFsdñkdsñeerwqeJEWEKN......"
 ```
 
-## Documentación
+## Documentation
 ### Swagger
-Para acceder, debemos utilizar los usuarios indicados en la sección anterior.
+To access, we must use the users indicated in the previous section.
 
 http://localhost:8081/swagger-ui.html
 
 ### Postman
-También pone a disposición de los usuarios una colección de llamadas y ejemplos que se encuentra en la ruta **/src/postman/Rest API.postman_collection.json**.
+It also makes available to users a collection of calls and examples found in the path **/src/postman/Rest API.postman_collection.json**.
 
 ## Autor
 | [![](https://avatars.githubusercontent.com/u/12874292?s=40&v=4)](https://github.com/LuisChica18)| 
